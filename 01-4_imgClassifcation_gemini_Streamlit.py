@@ -39,7 +39,14 @@ def streamlit_app(client, prompt: str):
     img = None
     if upload_file:
         img = Image.open(upload_file)
-        st.image(img, caption= '업로드한 이미지', width='stretch')
+        # 가로 사이즈가 300을 넘으면 비율에 맞춰 리사이즈
+        display_img = img
+        if img.width > 300:
+            ratio = 300 / img.width
+            new_width = 300
+            new_height = int(img.height * ratio)
+            display_img = img.resize((new_width, new_height))
+        st.image(display_img, caption= '업로드한 이미지')
 
     response = None
     # - 5) 분류 실행하기 : st.button / st.spinner
