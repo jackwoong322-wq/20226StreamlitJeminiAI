@@ -57,7 +57,7 @@ def streamlit_app(client, prompt: str):
      st.write("아직 분류 결과가 없습니다. 이미지를 업로드하고 '분류 실행' 버튼을 눌러주세요.")  
 
 def main():
-    load_dotenv()
+    #load_dotenv()
 
     # 1. 클라이언트 생성 (API 키 설정)
     client = genai.Client(api_key=os.getenv("GENAI_API_KEY"))
