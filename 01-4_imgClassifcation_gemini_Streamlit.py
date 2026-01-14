@@ -36,6 +36,7 @@ def streamlit_app(client, prompt: str):
     upload_file = st.file_uploader("이미지 업로드", type= ["png", "jpg", "jpeg"])
 
     # - 4) 업로드한 이미지 보여주기 : st.image
+    img = None
     if upload_file:
         img = Image.open(upload_file)
         st.image(img, caption= '업로드한 이미지', width='stretch')
